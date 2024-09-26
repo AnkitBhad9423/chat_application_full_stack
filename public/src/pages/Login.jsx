@@ -11,7 +11,6 @@ function Login() {
   const navigate = useNavigate();
   const [values, setValues] = useState({
     username: "",
-
     password: "",
   });
 
@@ -40,7 +39,6 @@ function Login() {
       const { password, username } = values;
       const { data } = await axios.post(loginRoute, {
         username,
-
         password,
       });
       console.log(data);
@@ -71,7 +69,7 @@ function Login() {
         <form onSubmit={(event) => handleSubmit(event)}>
           <div className="brand">
             <img src={Logo} alt="logo" />
-            <h1>snappy</h1>
+            <h1>E-commerce</h1>
           </div>
           <input
             type="text"
@@ -105,7 +103,7 @@ const FormContainer = styled.div`
   justify-content: center;
   gap: 1rem;
   align-items: center;
-  background-color: #131324;
+  background-color: #131314;
   .brand {
     display: flex;
     align-items: center;

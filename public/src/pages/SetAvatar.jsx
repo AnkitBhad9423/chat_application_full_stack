@@ -23,10 +23,13 @@ export const SetAvatar = () => {
     theme: "dark",
   };
 
-  useEffect(async () => {
-    if (!localStorage.getItem("chat-app-user")) {
-      navigate("/login");
-    }
+  useEffect(() => {
+    const check = async () => {
+      if (!localStorage.getItem("chat-app-user")) {
+        navigate("/login");
+      }
+    };
+    check();
   }, []);
 
   const setProfilePicture = async () => {

@@ -29,24 +29,22 @@ module.exports.register = async (req, res, next) => {
 module.exports.login = async (req, res, next) => {
   try {
     const { username, password } = req.body;
-    const user_login = await User.findOne({ username });
-    if (!user_login)
+    const user = await User.findOne({ username });
+    if (!user)
       return res.json({ msg: "Incorect username or password", status: false });
 
-    const isPassword = await bcrypt.compare(password, user_login.password);
+    const isPassword = await bcrypt.compare(password, user.password);
 
     if (!isPassword)
       return res.json({ msg: "Incorect username or password", status: false });
 
-    delete user_login.password;
+    delete user.password;
+    // console.log(user);
 
-    return res.json({ status: true, user_login });
+    return res.json({ status: true, user });
   } catch (err) {
     next(err);
   }
-  // console.log("At useModel")
-
-  // console.log(req.body);
 };
 
 module.exports.setAvatar = async (req, res, next) => {

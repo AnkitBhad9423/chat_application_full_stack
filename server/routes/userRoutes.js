@@ -10,6 +10,7 @@ const router = require("express").Router();
 // console.log("At useRouter");
 router.post("/register", register);
 router.post("/login", login);
+console.log(login);
 router.post("/setAvatar/:id", setAvatar);
 router.get("/allusers/:id", getAllUsers);
 
